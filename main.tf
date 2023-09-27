@@ -16,3 +16,9 @@ resource "github_repository_file" "file" {
   commit_email        = "terraform@example.com"
   overwrite_on_create = var.overwrite_on_create
 }
+
+resource "github_branch" "feature" {
+  repository = github_repository.repo.name
+  branch = "feature"
+  source_branch = "main"
+}
